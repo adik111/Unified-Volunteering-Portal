@@ -1,0 +1,156 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ER Diagram With Diamonds" id="ER-DIAMONDS">
+    <mxGraphModel dx="1800" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1800">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0"/>
+
+        <!-- USER Table -->
+        <mxCell id="User" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="90" y="60" width="110" height="50" as="geometry" />
+        </mxCell>
+        <!-- Attributes -->
+        <mxCell id="UserId_u" value="UserId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="240" y="60" width="90" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="Name_u" value="Name" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="240" y="110" width="90" height="37" as="geometry" />
+        </mxCell>
+        <!-- Connect attributes to User -->
+        <mxCell style="endArrow=none;html=1;" edge="1" source="User" target="UserId_u" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell style="endArrow=none;html=1;" edge="1" source="User" target="Name_u" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ORGANIZATIONHOME Table -->
+        <mxCell id="OrganizationHome" value="OrganizationHome" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="400" y="60" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OrgId_o" value="OrgId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="540" y="60" width="90" height="37" as="geometry" />
+        </mxCell>
+        <!-- Connect OrgHome attributes -->
+        <mxCell style="endArrow=none;html=1;" edge="1" source="OrganizationHome" target="OrgId_o" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- TASK Table -->
+        <mxCell id="Task" value="Task" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="700" y="60" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TaskId_t" value="TaskId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="860" y="60" width="90" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="OrgId_t" value="OrgId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="860" y="110" width="90" height="37" as="geometry" />
+        </mxCell>
+        <!-- Connect Task attributes -->
+        <mxCell style="endArrow=none;html=1;" edge="1" source="Task" target="TaskId_t" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell style="endArrow=none;html=1;" edge="1" source="Task" target="OrgId_t" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- APPLICATION Table -->
+        <mxCell id="Application" value="Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="90" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ApplicationId_a" value="ApplicationId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="240" y="350" width="90" height="37" as="geometry" />
+        </mxCell>
+
+        <!-- Foreign key diamonds -->
+        <!-- FK: Application.TaskId -->
+        <mxCell id="Rel_App_Task" value="TaskId" style="rhombus;whiteSpace=wrap;html=1;fillColor=#c9daf8;" vertex="1" parent="1">
+          <mxGeometry x="430" y="350" width="60" height="40" as="geometry" />
+        </mxCell>
+        <!-- FK: Application.UserId -->
+        <mxCell id="Rel_App_User" value="UserId" style="rhombus;whiteSpace=wrap;html=1;fillColor=#c9daf8;" vertex="1" parent="1">
+          <mxGeometry x="430" y="410" width="60" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Connect Application to attributes -->
+        <mxCell style="endArrow=none;html=1;" edge="1" source="Application" target="ApplicationId_a" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Connect Application to relation diamonds -->
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Application" target="Rel_App_Task" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Application" target="Rel_App_User" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Connect relation diamonds to referenced tables -->
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Rel_App_Task" target="Task" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Rel_App_User" target="User" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- SUBMISSION Table -->
+        <mxCell id="Submission" value="Submission" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="700" y="350" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SubmissionId_s" value="SubmissionId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="840" y="350" width="90" height="37" as="geometry" />
+        </mxCell>
+
+        <!-- FK diamond for ApplicationId in Submission -->
+        <mxCell id="Rel_Sub_Application" value="ApplicationId" style="rhombus;whiteSpace=wrap;html=1;fillColor=#a2c4c9;" vertex="1" parent="1">
+          <mxGeometry x="600" y="420" width="60" height="40" as="geometry" />
+        </mxCell>
+        <!-- Connect Submission -->
+        <mxCell style="endArrow=none;html=1;" edge="1" source="Submission" target="SubmissionId_s" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Connect Submission to relation -->
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Submission" target="Rel_Sub_Application" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Connect FK diamond to Application -->
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Rel_Sub_Application" target="Application" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CERTIFICATE Table -->
+        <mxCell id="Certificate" value="Certificate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+          <mxGeometry x="90" y="650" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CertificateId_c" value="CertificateId" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+          <mxGeometry x="240" y="650" width="90" height="37" as="geometry" />
+        </mxCell>
+
+        <!-- FK diamonds for UserId and TaskId in Certificate -->
+        <mxCell id="Rel_Cert_User" value="UserId" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffd966;" vertex="1" parent="1">
+          <mxGeometry x="400" y="650" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Rel_Cert_Task" value="TaskId" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffd966;" vertex="1" parent="1">
+          <mxGeometry x="400" y="710" width="60" height="40" as="geometry" />
+        </mxCell>
+        <!-- Connect Certificate -->
+        <mxCell style="endArrow=none;html=1;" edge="1" source="Certificate" target="CertificateId_c" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Connect Certificate to FK diamonds -->
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Certificate" target="Rel_Cert_User" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Certificate" target="Rel_Cert_Task" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Connect FK diamonds to referenced tables -->
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Rel_Cert_User" target="User" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell style="endArrow=block;html=1;" edge="1" source="Rel_Cert_Task" target="Task" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,19 @@
+package com.uvp.service;
+
+import com.uvp.entity.User;
+import com.uvp.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository repo;
+
+    public List<User> getUserDetails() {
+        return repo.findAll();
+    }
+}
